@@ -1,0 +1,58 @@
+#include <iostream> 
+using namespace std;
+
+class Node
+{
+public:
+	int data;
+	Node* left;
+	Node* right;
+};
+
+class BinaryTree
+{
+public:
+	Node* root;
+	BinaryTree()
+	{
+		root = NULL;
+	}
+	void display(Node* curr)
+	{
+		if (curr == NULL)
+			return;
+
+		// Print the root node 
+		cout << curr->data << " ";
+
+		// Recurse on left child 
+		display(curr->left);
+
+		// Recurse on right child 
+		display(curr->right);
+	}
+};
+
+// Driver program 
+int main()
+{
+	// Create a binary tree 
+	BinaryTree tree;
+
+	// Root 
+	tree.root = new Node();
+	tree.root->data = 1;
+
+	// Left child 
+	tree.root->left = new Node();
+	tree.root->left->data = 2;
+
+	// Right child 
+	tree.root->right = new Node();
+	tree.root->right->data = 3;
+
+	// Display the tree 
+	tree.display(tree.root);
+  system("pause");
+	return 0;
+}
